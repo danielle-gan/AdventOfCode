@@ -1000,7 +1000,9 @@ blhsm4xcrbrf68ninezvhhtqgphnzxlhl
 onethreenfkgrvsevenkczctlgkt7`;
 
 var newInput = input.replace(/(?:\r\n|\r|\n)/g, ',');
+
 const array = newInput.split(',');
+console.log(array.length);
 
 const numbers = []
 
@@ -1008,13 +1010,28 @@ const numbers = []
 for (var i = 0; i < array.length; i++) {
     // Loop through each character in the word
     numbers.push(array[i].match(/^\d+|\d+\b|\d+(?=\w)/g));
-    console.log(numbers[i]);
 }
+
+digitsCombined = [];
 
 for (var i = 0; i < numbers.length; i++) {
-    const last = numbers[i][numbers.length - 1];
-    console.log(Array.from(numbers[i][0])[0]);
-    console.log(Array.from(last));
+    const firstDigit = Array.from(numbers[i][0])[0];
+    const last = numbers[i].at(-1);
+    const lastDigit = last.substring(last.length-1);
+    const digits = firstDigit.toString() + lastDigit.toString();
+    digitsCombined.push(digits);
 }
 
+console.log(digitsCombined.length);
+console.log(digitsCombined);
 
+
+var digitsParsed = digitsCombined.map(function(x) {
+    return parseInt(x, 10);
+})
+
+console.log(digitsParsed);
+
+const sum = digitsParsed.reduce((partialSum,a) => partialSum + a, 0);
+
+console.log(sum);
