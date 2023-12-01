@@ -999,7 +999,6 @@ blhsm4xcrbrf68ninezvhhtqgphnzxlhl
 9dvjvfourtcthree
 onethreenfkgrvsevenkczctlgkt7`;
 
-
 var newInput = input.replace(/(?:\r\n|\r|\n)/g, ',');
 const array = newInput.split(',');
 
@@ -1011,3 +1010,11 @@ for (var i = 0; i < array.length; i++) {
     numbers.push(array[i].match(/^\d+|\d+\b|\d+(?=\w)/g));
     console.log(numbers[i]);
 }
+
+for (var i = 0; i < numbers.length; i++) {
+    const last = numbers[i][numbers.length - 1];
+    console.log(Array.from(numbers[i][0])[0]);
+    console.log(Array.from(last));
+}
+
+
